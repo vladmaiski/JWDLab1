@@ -1,7 +1,6 @@
 package com.epam.jwd.service;
 
-import com.epam.jwd.model.Line;
-import com.epam.jwd.model.Point;
+import com.epam.jwd.model.*;
 
 public class LineService extends ShapeService<Line> {
 

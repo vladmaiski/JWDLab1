@@ -1,8 +1,7 @@
 package com.epam.jwd.service;
 
 import com.epam.jwd.model.Point;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.*;
 
 public class PointService {
 
