@@ -1,9 +1,19 @@
 package com.epam.jwd.service;
 
-import com.epam.jwd.model.Point;
-import org.apache.logging.log4j.*;
+import com.epam.jwd.model.simple.Point;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class PointService {
+
+    private static final PointService INSTANCE = new PointService();
+
+    private PointService() {
+    }
+
+    public static PointService getInstance() {
+        return INSTANCE;
+    }
 
     private static final Logger LOGGER = LogManager.getLogger();
 
@@ -13,7 +23,7 @@ public class PointService {
         }
     }
 
-    public static double getLenBetweenPoints(Point firstPoint, Point secondPoint) {
+    public double calcLenBetweenPoints(Point firstPoint, Point secondPoint) {
         double deltaX = secondPoint.getCoordinateX() - firstPoint.getCoordinateX();
         double deltaY = secondPoint.getCoordinateY() - firstPoint.getCoordinateY();
 

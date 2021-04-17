@@ -1,17 +1,18 @@
 package com.epam.jwd.model;
 
-import org.apache.logging.log4j.*;
+import com.epam.jwd.model.simple.Point;
 
 public abstract class Shape {
-
-    private static final String ARGUMENT_AMOUNT_EXCEPTION_MSG = "Incorrect amount of points in ";
-    private static final String ILLEGAL_VALUE_EXCEPTION_MSG = "Point can't be null in ";
-    private static final Logger LOGGER = LogManager.getLogger();
 
     private final Point[] points;
     private final String name;
 
-    public Shape(String name, int pointsAmount, Point... points) {
+    public Shape(String name, Point... points) {
+        this.points = points;
+        this.name = name;
+    }
+
+    /*    public Shape(String name, int pointsAmount, Point... points) {
         if (points == null || points.length != pointsAmount) {
             String message = ARGUMENT_AMOUNT_EXCEPTION_MSG + this.getClass();
             LOGGER.error(message);
@@ -27,7 +28,7 @@ public abstract class Shape {
             this.points[i] = points[i];
         }
         this.name = name;
-    }
+    }*/
 
     public Point[] getPoints() {
         return points;
@@ -42,6 +43,10 @@ public abstract class Shape {
         }
         squareString.append("}");
         return squareString.toString();
+    }
+
+    public String getName() {
+        return name;
     }
 
 }

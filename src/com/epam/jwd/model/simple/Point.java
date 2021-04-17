@@ -1,4 +1,4 @@
-package com.epam.jwd.model;
+package com.epam.jwd.model.simple;
 
 import java.util.Objects;
 
