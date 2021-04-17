@@ -8,8 +8,6 @@ public enum SquarePropertiesStrategy implements ShapePropertiesStrategy {
     INSTANCE;
 
     //Enum Singleton
-    private SquarePropertiesStrategy() {
-    }
 
     @Override
     public double calculateArea(MultiAngleShape shape) {

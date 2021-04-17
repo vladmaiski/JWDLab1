@@ -1,7 +1,6 @@
 package com.epam.jwd.model.polygonal;
 
 import com.epam.jwd.constant.ShapeType;
-import com.epam.jwd.exception.ShapeException;
 import com.epam.jwd.factory.api.ShapeFactory;
 import com.epam.jwd.model.Shape;
 import com.epam.jwd.model.simple.Point;
@@ -24,7 +23,7 @@ public class PolygonalShapeFactory implements ShapeFactory {
     }
 
     @Override
-    public Shape createShape(ShapeType type, Point... points) throws ShapeException {
+    public Shape createShape(ShapeType type, Point... points) {
         switch (type) {
             case TRIANGLE:
                 return new Triangle(TrianglePropertiesStrategy.getInstance(), points);
