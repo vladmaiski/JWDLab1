@@ -8,16 +8,13 @@ import com.epam.jwd.strategy.api.ShapePropertiesStrategy;
 public class PolygonalShapePropertiesStrategy implements ShapePropertiesStrategy {
 
     //Another realization of singleton
-    private static PolygonalShapePropertiesStrategy instance;
+    private final static PolygonalShapePropertiesStrategy INSTANCE = new PolygonalShapePropertiesStrategy();
 
     private PolygonalShapePropertiesStrategy() {
     }
 
     public static PolygonalShapePropertiesStrategy getInstance() {
-        if (instance == null) {
-            return instance = new PolygonalShapePropertiesStrategy();
-        }
-        return instance;
+        return INSTANCE;
     }
 
     @Override

@@ -2,7 +2,7 @@ package com.epam.jwd.model.polygonal;
 
 import com.epam.jwd.constant.ShapeType;
 import com.epam.jwd.factory.api.ShapeFactory;
-import com.epam.jwd.model.Shape;
+import com.epam.jwd.model.MultiAngleShape;
 import com.epam.jwd.model.simple.Point;
 import com.epam.jwd.strategy.impl.PolygonalShapePropertiesStrategy;
 import com.epam.jwd.strategy.impl.SquarePropertiesStrategy;
@@ -17,13 +17,13 @@ public class PolygonalShapeFactory implements ShapeFactory {
 
     public static PolygonalShapeFactory getInstance() {
         if (instance == null) {
-            return instance = new PolygonalShapeFactory();
+            instance = new PolygonalShapeFactory();
         }
         return instance;
     }
 
     @Override
-    public Shape createShape(ShapeType type, Point... points) {
+    public MultiAngleShape createShape(ShapeType type, Point... points) {
         switch (type) {
             case TRIANGLE:
                 return new Triangle(TrianglePropertiesStrategy.getInstance(), points);

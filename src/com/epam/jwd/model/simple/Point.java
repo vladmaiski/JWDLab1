@@ -3,8 +3,8 @@ package com.epam.jwd.model.simple;
 import java.util.Objects;
 
 public class Point {
-    double coordinateX;
-    double coordinateY;
+    private final double coordinateX;
+    private final double coordinateY;
 
     public Point(double coordinateX, double coordinateY) {
         this.coordinateX = coordinateX;

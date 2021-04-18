@@ -8,13 +8,16 @@ import com.epam.jwd.model.polygonal.PolygonalShapeFactory;
 
 public class SimpleApplicationContext implements ApplicationContext {
 
-    private static final SimpleApplicationContext INSTANCE = new SimpleApplicationContext();
+    private static SimpleApplicationContext instance;
 
     private SimpleApplicationContext() {
     }
 
     public static SimpleApplicationContext getInstance() {
-        return INSTANCE;
+        if (instance == null) {
+            instance = new SimpleApplicationContext();
+        }
+        return instance;
     }
 
     @Override

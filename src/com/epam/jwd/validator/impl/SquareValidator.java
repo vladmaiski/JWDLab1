@@ -1,21 +1,24 @@
-package com.epam.jwd.service.validator;
+package com.epam.jwd.validator.impl;
 
 import com.epam.jwd.model.polygonal.Square;
 import com.epam.jwd.model.simple.Point;
 import com.epam.jwd.service.PointService;
-import com.epam.jwd.service.ShapeService;
+import com.epam.jwd.validator.api.ShapeValidator;
 
 import java.util.Arrays;
 
-public class SquareValidator implements ShapeService<Square> {
+public class SquareValidator implements ShapeValidator<Square> {
 
-    private static final SquareValidator INSTANCE = new SquareValidator();
+    private static SquareValidator instance;
 
     private SquareValidator() {
     }
 
     public static SquareValidator getInstance() {
-        return INSTANCE;
+        if (instance == null) {
+            instance = new SquareValidator();
+        }
+        return instance;
     }
 
     @Override

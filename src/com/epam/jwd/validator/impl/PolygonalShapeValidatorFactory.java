@@ -1,24 +1,22 @@
-package com.epam.jwd.service;
+package com.epam.jwd.validator.impl;
 
 import com.epam.jwd.constant.ShapeName;
 import com.epam.jwd.factory.api.ShapeServiceFactory;
 import com.epam.jwd.model.MultiAngleShape;
-import com.epam.jwd.service.validator.PolygonValidator;
-import com.epam.jwd.service.validator.SquareValidator;
-import com.epam.jwd.service.validator.TriangleValidator;
+import com.epam.jwd.validator.api.ShapeValidator;
 
-public class PolygonalShapeServiceFactory implements ShapeServiceFactory<MultiAngleShape> {
+public class PolygonalShapeValidatorFactory implements ShapeServiceFactory<MultiAngleShape> {
 
-    private static final PolygonalShapeServiceFactory INSTANCE = new PolygonalShapeServiceFactory();
+    private static final PolygonalShapeValidatorFactory INSTANCE = new PolygonalShapeValidatorFactory();
 
-    private PolygonalShapeServiceFactory() {
+    private PolygonalShapeValidatorFactory() {
     }
 
-    public static PolygonalShapeServiceFactory getInstance() {
+    public static PolygonalShapeValidatorFactory getInstance() {
         return INSTANCE;
     }
 
-    public ShapeService<? extends MultiAngleShape> createService(String shapeName) {
+    public ShapeValidator<? extends MultiAngleShape> createService(String shapeName) {
         switch (shapeName) {
             case ShapeName.SQUARE:
                 return SquareValidator.getInstance();

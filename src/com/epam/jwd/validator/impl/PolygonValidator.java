@@ -1,18 +1,21 @@
-package com.epam.jwd.service.validator;
+package com.epam.jwd.validator.impl;
 
 import com.epam.jwd.model.polygonal.Polygon;
 import com.epam.jwd.service.PointService;
-import com.epam.jwd.service.ShapeService;
+import com.epam.jwd.validator.api.ShapeValidator;
 
-public class PolygonValidator implements ShapeService<Polygon> {
+public class PolygonValidator implements ShapeValidator<Polygon> {
 
-    private static final PolygonValidator INSTANCE = new PolygonValidator();
+    private static PolygonValidator instance;
 
     private PolygonValidator() {
     }
 
     public static PolygonValidator getInstance() {
-        return INSTANCE;
+        if (instance == null) {
+            instance = new PolygonValidator();
+        }
+        return instance;
     }
 
     @Override

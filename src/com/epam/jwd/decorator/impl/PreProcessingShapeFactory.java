@@ -6,7 +6,7 @@ import com.epam.jwd.decorator.api.ShapePreProcessor;
 import com.epam.jwd.exception.ShapeException;
 import com.epam.jwd.exception.ShapeNotExistException;
 import com.epam.jwd.factory.api.ShapeFactory;
-import com.epam.jwd.model.Shape;
+import com.epam.jwd.model.MultiAngleShape;
 import com.epam.jwd.model.simple.Point;
 
 public class PreProcessingShapeFactory extends ShapeFactoryAbstractDecorator {
@@ -18,7 +18,7 @@ public class PreProcessingShapeFactory extends ShapeFactoryAbstractDecorator {
     }
 
     @Override
-    public Shape createShape(ShapeType type, Point... points) throws ShapeException {
+    public MultiAngleShape createShape(ShapeType type, Point... points) throws ShapeException {
         if (type == null) {
             throw new IllegalArgumentException("Type is null");
         }

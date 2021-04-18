@@ -9,13 +9,16 @@ import java.util.Arrays;
 
 public class ShapePointsValidator implements ShapePreProcessor {
 
-    private static final ShapePointsValidator INSTANCE = new ShapePointsValidator();
+    private static ShapePointsValidator instance;
 
     private ShapePointsValidator() {
     }
 
     public static ShapePointsValidator getInstance() {
-        return INSTANCE;
+        if (instance == null) {
+            instance = new ShapePointsValidator();
+        }
+        return instance;
     }
 
     @Override

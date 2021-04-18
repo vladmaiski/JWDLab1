@@ -5,7 +5,7 @@ import com.epam.jwd.decorator.api.ShapeFactoryAbstractDecorator;
 import com.epam.jwd.decorator.api.ShapePostProcessor;
 import com.epam.jwd.exception.ShapeException;
 import com.epam.jwd.factory.api.ShapeFactory;
-import com.epam.jwd.model.Shape;
+import com.epam.jwd.model.MultiAngleShape;
 import com.epam.jwd.model.simple.Point;
 
 public class PostProcessingShapeFactory extends ShapeFactoryAbstractDecorator {
@@ -17,8 +17,8 @@ public class PostProcessingShapeFactory extends ShapeFactoryAbstractDecorator {
     }
 
     @Override
-    public Shape createShape(ShapeType type, Point... points) throws ShapeException {
-        Shape shape = factory.createShape(type, points);
+    public MultiAngleShape createShape(ShapeType type, Point... points) throws ShapeException {
+        MultiAngleShape shape = factory.createShape(type, points);
         return postProcessor.process(shape);
     }
 
