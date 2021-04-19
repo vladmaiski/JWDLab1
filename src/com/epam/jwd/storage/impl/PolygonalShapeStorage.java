@@ -31,7 +31,11 @@ public class PolygonalShapeStorage implements ShapeStorage<MultiAngleShape> {
     }
 
     public ArrayList<MultiAngleShape> getStorage() {
-        return STORAGE;
+        ArrayList<MultiAngleShape> newList = new ArrayList<>();
+        for (MultiAngleShape shape : STORAGE) {
+            newList.add(shape.clone());
+        }
+        return newList;
     }
 
     List<? extends MultiAngleShape> figuresByCriteria(PolygonalShapeCriteria figureCriteria) {
