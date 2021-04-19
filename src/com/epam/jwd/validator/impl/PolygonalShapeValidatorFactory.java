@@ -1,6 +1,6 @@
 package com.epam.jwd.validator.impl;
 
-import com.epam.jwd.constant.ShapeName;
+import com.epam.jwd.constant.ShapeType;
 import com.epam.jwd.factory.api.ShapeServiceFactory;
 import com.epam.jwd.model.MultiAngleShape;
 import com.epam.jwd.validator.api.ShapeValidator;
@@ -16,16 +16,16 @@ public class PolygonalShapeValidatorFactory implements ShapeServiceFactory<Multi
         return INSTANCE;
     }
 
-    public ShapeValidator<? extends MultiAngleShape> createService(String shapeName) {
-        switch (shapeName) {
-            case ShapeName.SQUARE:
+    public ShapeValidator<? extends MultiAngleShape> createService(ShapeType shapeType) {
+        switch (shapeType) {
+            case SQUARE:
                 return SquareValidator.getInstance();
-            case ShapeName.TRIANGLE:
+            case TRIANGLE:
                 return TriangleValidator.getInstance();
-            case ShapeName.POLYGON:
+            case POLYGON:
                 return PolygonValidator.getInstance();
         }
-        throw new IllegalArgumentException("Incorrect multi angle shape " + shapeName);
+        throw new IllegalArgumentException("Incorrect multi angle shape " + shapeType.name());
     }
 
 }

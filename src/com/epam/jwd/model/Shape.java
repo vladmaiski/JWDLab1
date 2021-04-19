@@ -1,34 +1,24 @@
 package com.epam.jwd.model;
 
+import com.epam.jwd.constant.ShapeType;
 import com.epam.jwd.model.simple.Point;
 
 public abstract class Shape {
 
     private final Point[] points;
-    private final String name;
+    private final ShapeType shapeType;
+    private final long ID;
+    private static long availableID = 0;
 
-    public Shape(String name, Point... points) {
+    public Shape(ShapeType shapeType, Point... points) {
         this.points = points;
-        this.name = name;
+        this.shapeType = shapeType;
+        this.ID = availableID++;
     }
 
-    /*    public Shape(String name, int pointsAmount, Point... points) {
-        if (points == null || points.length != pointsAmount) {
-            String message = ARGUMENT_AMOUNT_EXCEPTION_MSG + this.getClass();
-            LOGGER.error(message);
-            throw new IllegalArgumentException(message);
-        }
-        this.points = new Point[pointsAmount];
-        for (int i = 0; i < pointsAmount; i++) {
-            if (points[i] == null) {
-                String message = ILLEGAL_VALUE_EXCEPTION_MSG + this.getClass();
-                LOGGER.error(message);
-                throw new IllegalArgumentException(message);
-            }
-            this.points[i] = points[i];
-        }
-        this.name = name;
-    }*/
+    public long getID() {
+        return ID;
+    }
 
     public Point[] getPoints() {
         return points;
@@ -37,7 +27,7 @@ public abstract class Shape {
     @Override
     public String toString() {
         StringBuilder squareString = new StringBuilder();
-        squareString.append(name).append("{");
+        squareString.append(shapeType).append("{");
         for (Point point : getPoints()) {
             squareString.append(point).append(" ");
         }
@@ -45,8 +35,8 @@ public abstract class Shape {
         return squareString.toString();
     }
 
-    public String getName() {
-        return name;
+    public ShapeType getShapeType() {
+        return shapeType;
     }
 
 }

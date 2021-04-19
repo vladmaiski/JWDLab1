@@ -16,12 +16,12 @@ public interface ShapeCrud {
 
     List<MultiAngleShape> multiCreateShape(Map<ShapeType, Point[]> shapeMap) throws ShapeException;
 
-    void deleteShape(int index);
+    void deleteShape(int id);
 
-    void updateFigure(int index, MultiAngleShape shape);
+    void updateShape(int id, MultiAngleShape shape);
 
-    List<MultiAngleShape> findShapesById(int figureId);
+    MultiAngleShape findShapesById(long figureId);
 
-    List<MultiAngleShape> findShapesByCriteria(PolygonalShapeCriteria criteria);
+    List<? extends MultiAngleShape> findShapesByCriteria(PolygonalShapeCriteria criteria);
 
 }

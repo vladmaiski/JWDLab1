@@ -23,7 +23,7 @@ public class ShapeExistencePostProcessing implements ShapePostProcessor {
     @Override
     public MultiAngleShape process(MultiAngleShape shape) throws ShapeNotExistException {
         PolygonalShapeValidatorFactory serviceFactory = PolygonalShapeValidatorFactory.getInstance();
-        ShapeValidator multiAngelShapeShapeValidator = serviceFactory.createService(shape.getName());
+        ShapeValidator multiAngelShapeShapeValidator = serviceFactory.createService(shape.getShapeType());
         if (!multiAngelShapeShapeValidator.isValid(shape)) {
             throw new ShapeNotExistException(shape.toString());
         }

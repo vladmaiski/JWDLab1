@@ -1,5 +1,6 @@
 package com.epam.jwd.model;
 
+import com.epam.jwd.constant.ShapeType;
 import com.epam.jwd.model.simple.Point;
 import com.epam.jwd.strategy.api.ShapePropertiesStrategy;
 
@@ -7,12 +8,12 @@ public abstract class MultiAngleShape extends Shape {
 
     private final ShapePropertiesStrategy strategy;
 
-    public MultiAngleShape(String name, ShapePropertiesStrategy strategy, Point... points) {
-        super(name, points);
+    public MultiAngleShape(ShapeType shapeType, ShapePropertiesStrategy strategy, Point... points) {
+        super(shapeType, points);
         this.strategy = strategy;
     }
 
-    public double calcArea() {
+    public double calculateArea() {
         return strategy.calculateArea(this);
     }
 
@@ -20,4 +21,7 @@ public abstract class MultiAngleShape extends Shape {
         return strategy.calculatePerimeter(this);
     }
 
+    public ShapePropertiesStrategy getStrategy() {
+        return strategy;
+    }
 }

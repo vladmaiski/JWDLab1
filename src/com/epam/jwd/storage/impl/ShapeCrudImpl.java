@@ -17,10 +17,13 @@ import java.util.Map;
 public class ShapeCrudImpl implements ShapeCrud {
 
     private final ShapeFactory POLYGONAL_FIGURE_FACTORY = SimpleApplicationContext.getInstance().createShapeFactory();
+    private final PolygonalShapeStorage STORAGE = PolygonalShapeStorage.getInstance();
 
     @Override
     public Shape createShape(ShapeType type, Point... points) throws ShapeException {
-        return POLYGONAL_FIGURE_FACTORY.createShape(type, points);
+        MultiAngleShape newShape = POLYGONAL_FIGURE_FACTORY.createShape(type, points);
+        STORAGE.addShape(newShape);
+        return newShape;
     }
 
     @Override
@@ -32,28 +35,47 @@ public class ShapeCrudImpl implements ShapeCrud {
         for (Map.Entry<ShapeType, Point[]> entry : shapeMap.entrySet()) {
             MultiAngleShape shape = POLYGONAL_FIGURE_FACTORY.createShape(entry.getKey(), entry.getValue());
             createdShapes.add(shape);
+            STORAGE.addShape(shape);
         }
         return createdShapes;
     }
 
     @Override
-    public void deleteShape(int index) {
+    public void deleteShape(int shapeID) {
+        if (shapeID < 0) {
+            throw new IllegalArgumentException("Figure ID must be > 0");
+        }
 
+        STORAGE.removeShape(shapeID);
     }
 
     @Override
-    public void updateFigure(int index, MultiAngleShape shape) {
+    public void updateShape(int id, MultiAngleShape shape) {
+        if (id < 0) {
+            throw new IllegalArgumentException("Figure ID must be > 0");
+        }
 
+        if (shape == null) {
+            throw new IllegalArgumentException("Shape should be bot null");
+        }
+
+        STORAGE.updateShape(id, shape);
     }
 
     @Override
-    public List<MultiAngleShape> findShapesById(int figureId) {
-        return null;
+    public MultiAngleShape findShapesById(long shapeID) {
+        if (shapeID < 0) {
+            throw new IllegalArgumentException("Figure ID must be > 0");
+        }
+        return STORAGE.findShape(shapeID);
     }
 
     @Override
-    public List<MultiAngleShape> findShapesByCriteria(PolygonalShapeCriteria criteria) {
-        return null;
+    public List<? extends MultiAngleShape> findShapesByCriteria(PolygonalShapeCriteria criteria) {
+        if (criteria == null) {
+            throw new IllegalArgumentException("Criteria must be not null");
+        }
+        return STORAGE.figuresByCriteria(criteria);
     }
 
 }
