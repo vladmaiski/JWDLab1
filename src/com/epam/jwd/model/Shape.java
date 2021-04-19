@@ -3,8 +3,6 @@ package com.epam.jwd.model;
 import com.epam.jwd.constant.ShapeType;
 import com.epam.jwd.model.simple.Point;
 
-import java.util.Objects;
-
 public abstract class Shape {
 
     private final Point[] points;
