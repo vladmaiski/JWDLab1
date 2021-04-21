@@ -3,7 +3,6 @@ package com.epam.jwd.decorator.impl;
 import com.epam.jwd.decorator.api.ShapePostProcessor;
 import com.epam.jwd.exception.ShapeNotExistException;
 import com.epam.jwd.model.MultiAngleShape;
-import com.epam.jwd.model.Shape;
 import com.epam.jwd.validator.api.ShapeValidator;
 import com.epam.jwd.validator.impl.PolygonalShapeValidatorFactory;
 

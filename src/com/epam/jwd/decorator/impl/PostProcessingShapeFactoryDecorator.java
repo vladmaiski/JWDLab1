@@ -12,7 +12,7 @@ public class PostProcessingShapeFactoryDecorator extends ShapeFactoryAbstractDec
 
     private final ShapePostProcessor[] postProcessor = new ShapePostProcessor[]{ShapeExistencePostProcessing.getInstance()};
 
-    public PostProcessingShapeFactoryDecorator(ShapeFactory factory) {
+    public PostProcessingShapeFactoryDecorator(ShapeFactory<MultiAngleShape> factory) {
         super(factory);
     }
 

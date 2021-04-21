@@ -13,7 +13,7 @@ public class PreProcessingShapeFactoryDecorator extends ShapeFactoryAbstractDeco
 
     private final ShapePreProcessor[] preProcessor = new ShapePreProcessor[]{ShapePointsValidator.getInstance()};
 
-    public PreProcessingShapeFactoryDecorator(ShapeFactory factory) {
+    public PreProcessingShapeFactoryDecorator(ShapeFactory<MultiAngleShape> factory) {
         super(factory);
     }
 

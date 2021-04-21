@@ -2,11 +2,10 @@ package com.epam.jwd.factory.api;
 
 import com.epam.jwd.constant.ShapeType;
 import com.epam.jwd.exception.ShapeException;
-import com.epam.jwd.model.MultiAngleShape;
 import com.epam.jwd.model.simple.Point;
 
-public interface ShapeFactory {
+public interface ShapeFactory<E> {
 
-    MultiAngleShape createShape(ShapeType type, Point... points) throws ShapeException;
+    E createShape(ShapeType type, Point... points) throws ShapeException;
 
 }

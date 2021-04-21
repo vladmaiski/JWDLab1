@@ -6,11 +6,11 @@ import com.epam.jwd.factory.api.ShapeFactory;
 import com.epam.jwd.model.MultiAngleShape;
 import com.epam.jwd.model.simple.Point;
 
-public abstract class ShapeFactoryAbstractDecorator implements ShapeFactory {
+public abstract class ShapeFactoryAbstractDecorator implements ShapeFactory<MultiAngleShape> {
 
-    protected final ShapeFactory factory;
+    protected final ShapeFactory<MultiAngleShape> factory;
 
-    public ShapeFactoryAbstractDecorator(ShapeFactory factory) {
+    public ShapeFactoryAbstractDecorator(ShapeFactory<MultiAngleShape> factory) {
         this.factory = factory;
     }
 

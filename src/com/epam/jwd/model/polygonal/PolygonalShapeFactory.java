@@ -8,7 +8,7 @@ import com.epam.jwd.strategy.impl.PolygonalShapePropertiesStrategy;
 import com.epam.jwd.strategy.impl.SquarePropertiesStrategy;
 import com.epam.jwd.strategy.impl.TrianglePropertiesStrategy;
 
-public class PolygonalShapeFactory implements ShapeFactory {
+public class PolygonalShapeFactory implements ShapeFactory<MultiAngleShape> {
 
     private static PolygonalShapeFactory instance;
 

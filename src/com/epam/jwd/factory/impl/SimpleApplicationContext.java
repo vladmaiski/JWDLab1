@@ -4,6 +4,7 @@ import com.epam.jwd.decorator.impl.PostProcessingShapeFactoryDecorator;
 import com.epam.jwd.decorator.impl.PreProcessingShapeFactoryDecorator;
 import com.epam.jwd.factory.api.ApplicationContext;
 import com.epam.jwd.factory.api.ShapeFactory;
+import com.epam.jwd.model.MultiAngleShape;
 import com.epam.jwd.model.polygonal.PolygonalShapeFactory;
 
 public class SimpleApplicationContext implements ApplicationContext {
@@ -21,7 +22,7 @@ public class SimpleApplicationContext implements ApplicationContext {
     }
 
     @Override
-    public ShapeFactory createShapeFactory() {
+    public ShapeFactory<MultiAngleShape> createShapeFactory() {
         PolygonalShapeFactory shapeFactory = PolygonalShapeFactory.getInstance();
         PreProcessingShapeFactoryDecorator preProcessingShapeFactoryDecorator = new PreProcessingShapeFactoryDecorator(shapeFactory);
         return new PostProcessingShapeFactoryDecorator(preProcessingShapeFactoryDecorator);

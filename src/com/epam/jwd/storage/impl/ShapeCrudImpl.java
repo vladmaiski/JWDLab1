@@ -16,7 +16,7 @@ import java.util.Map;
 
 public class ShapeCrudImpl implements ShapeCrud {
 
-    private final ShapeFactory POLYGONAL_FIGURE_FACTORY = SimpleApplicationContext.getInstance().createShapeFactory();
+    private final ShapeFactory<MultiAngleShape> POLYGONAL_FIGURE_FACTORY = SimpleApplicationContext.getInstance().createShapeFactory();
     private final PolygonalShapeStorage STORAGE = PolygonalShapeStorage.getInstance();
 
     @Override
