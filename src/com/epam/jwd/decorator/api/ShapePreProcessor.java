@@ -8,8 +8,4 @@ public interface ShapePreProcessor {
 
     boolean process(Point... points) throws ShapeException;
 
-    static ShapePreProcessor newInstance() {
-        return ShapePointsValidator.getInstance();
-    }
-
 }

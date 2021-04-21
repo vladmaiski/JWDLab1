@@ -8,8 +8,4 @@ public interface ShapePostProcessor {
 
     MultiAngleShape process(MultiAngleShape shape) throws ShapeNotExistException;
 
-    static ShapePostProcessor newInstance() {
-        return ShapeExistencePostProcessing.getInstance();
-    }
-
 }

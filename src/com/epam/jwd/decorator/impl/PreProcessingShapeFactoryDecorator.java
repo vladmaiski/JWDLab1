@@ -9,11 +9,11 @@ import com.epam.jwd.factory.api.ShapeFactory;
 import com.epam.jwd.model.MultiAngleShape;
 import com.epam.jwd.model.simple.Point;
 
-public class PreProcessingShapeFactory extends ShapeFactoryAbstractDecorator {
+public class PreProcessingShapeFactoryDecorator extends ShapeFactoryAbstractDecorator {
 
-    private final ShapePreProcessor preProcessor = ShapePointsValidator.getInstance();
+    private final ShapePreProcessor[] preProcessor = new ShapePreProcessor[]{ShapePointsValidator.getInstance()};
 
-    public PreProcessingShapeFactory(ShapeFactory factory) {
+    public PreProcessingShapeFactoryDecorator(ShapeFactory factory) {
         super(factory);
     }
 
@@ -23,8 +23,10 @@ public class PreProcessingShapeFactory extends ShapeFactoryAbstractDecorator {
             throw new IllegalArgumentException("Type is null");
         }
 
-        if (!preProcessor.process(points)) {
-            throw new ShapeNotExistException("Shape is not valid");
+        for (ShapePreProcessor preProcessor : preProcessor) {
+            if (!preProcessor.process(points)) {
+                throw new ShapeNotExistException("Shape is not valid");
+            }
         }
 
         return factory.createShape(type, points);
